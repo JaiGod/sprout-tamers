@@ -55,6 +55,8 @@ static func wild_group(season: int, area: int, rng2: RandomNumberGenerator) -> A
 		if D.BLIGHTS[i]["s"] <= season and D.BLIGHTS[i]["s"] >= season - 1:
 			pool.append(i)
 	var n = [rng2.randi_range(1, 2), rng2.randi_range(2, 3), 3][area]
+	if area == 0 and G.team().size() < 2:
+		n = 1
 	var lv = 1 + season * 3 + int(D.WOODS[area]["lv"])
 	var out = []
 	for k in n:
